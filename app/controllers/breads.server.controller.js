@@ -89,7 +89,6 @@ exports.getShowRoute = function(req, res) {
             .populate('directionLink')
             .populate('comments')
             .exec(function (err, recordFound) {
-                console.log('Show Route: ', recordFound);
                 if (err) {
                     req.flash('error', err);
                     return res.render('pageNotFound');
