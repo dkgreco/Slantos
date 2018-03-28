@@ -3,8 +3,6 @@ let User = require('mongoose').model('User'),
 
 const _getErrorMessage = function(err) {
     let message = '';
-    console.log('inside _getErrorMessage(err): ', err);
-
     try {
         if (err.code) {
             switch (err.code) {
@@ -23,11 +21,10 @@ const _getErrorMessage = function(err) {
             }
             return message;
         }
+        return message;
     } catch (e) {
-        console.log('error caught, returning empty string');
-        return '';
+        return 'Indeterminate Error While Parsing Error';
     }
-
 };
 
 // AUTH Ops - OAUTH Strategy For Facebook and Google
@@ -53,8 +50,9 @@ exports.saveOAuthUserProfile = function(req, res, next) {
                     user = new User(profile);
 
                     user.save(function(err) {
-                        //let message = _getErrorMessage(err);
-                        //req.flash('error', message);
+                        let message = _getErrorMessage(err);
+                        console.log(message);
+                        req.flash('error', message);
                         return next(err, user);
                     });
                     return next(err, user);
@@ -68,25 +66,11 @@ exports.saveOAuthUserProfile = function(req, res, next) {
 
 // AUTH Ops - Local Strategy
 exports.renderSignin = function(req, res, next) {
-    if (!req.user) {
-        res.render('signin', {
-            title: 'Sign-In Form',
-            messages: req.flash('error') || req.flash('info')
-        });
-    } else {
-        return res.redirect('/');
-    }
+    res.render('auth/signin');
 };
 
 exports.renderSignup = function(req, res, next) {
-    if (!req.user) {
-        res.render('signup', {
-            title: 'Sign Up Form',
-            messages: req.flash('error')
-        });
-    } else {
-        return res.redirect('/');
-    }
+    res.render('auth/signup');
 };
 
 exports.signup = function(req, res, next) {
@@ -98,23 +82,25 @@ exports.signup = function(req, res, next) {
 
         user.save(function(err) {
             if (err) {
-                console.log('error encountered.', err);
                 message = _getErrorMessage(err);
+                console.log(err);
                 req.flash('error', message);
-                return res.redirect('/');
+                return res.redirect('/signup');
             }
             req.login(user, function(err) {
                 if (err) return next(err);
+                req.flash('success', 'You now have an account! Congratulations!!');
                 return res.redirect('/');
             });
         });
     } else {
-        return res.redirect('/');
+        res.redirect('/');
     }
 };
 
 exports.signout = function(req, res) {
     req.logOut();
+    req.flash('success', 'You have been successfully logged out.');
     res.redirect('/');
 };
 

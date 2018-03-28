@@ -7,5 +7,8 @@ const express = require('./config/express'),
     pp = passport(),
     app = express();
 
+const seedMe = require('./config/seed/seedDB');
+//seedMe();
+
 app.listen(3000, () => console.log(`Slantos Server Started in ${process.env.NODE_ENV} mode.`));
 module.exports = app;

@@ -1,4 +1,41 @@
-<% include partials/header %>
-        <h1><%= title %></h1>
-        <a href="/breads">Our Breads</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slantos Bread Community</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/landing.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+</head>
+<body>
+
+<div class="container">
+    <% if(errMsg && errMsg.length > 0){ %>
+    <div class="alert alert-danger" role="alert">
+        <%= errMsg %>
+    </div>
+    <% } %>
+    <% if(sucMsg && sucMsg.length > 0){ %>
+    <div class="alert alert-success" role="alert">
+        <%= sucMsg %>
+    </div>
+    <% } %>
+</div>
+
+<div id="landing-header">
+    <h1>Welcome To The Slantos Bread Community!</h1>
+    <a href="/breads" class="btn btn-lg" style="font-family: serif;
+        font-size: 35px; text-decoration: underline; color: navajowhite;">
+        Find A Bread To Bake Today!
+    </a>
+</div>
+
+<ul class="slideshow">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<% var sf = false; %>
 <% include partials/footer %>

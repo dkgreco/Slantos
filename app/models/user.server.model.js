@@ -20,7 +20,8 @@ let UserSchema = new Schema({
             'Please fill in a valid email address.'
         ],
         required: 'An Email address is required.',
-        type: String
+        type: String,
+        unique: true
     },
     username: {
         required: 'A Username is required.',
@@ -69,11 +70,6 @@ let UserSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
-    },
-    role: {
-        enum: ['admin', 'owner', 'user'],
-        required: 'A role is required.',
-        type: String
     }
 });
 

@@ -7,7 +7,6 @@ exports.render = function(req, res) {
 
     res.render('landing', {
         title: 'Slantos Bread Community',
-        userFullName: req.user ? req.user.fullName : '',
-        user: req.user
+        userFullName: req.user ? req.user.fullName : ''
     });
 };

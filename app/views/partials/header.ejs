@@ -3,10 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <meta name="author" content="Dustin K Greco">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <title>Slantos Bread Community</title>
 
         <!--BootStrap Plugin-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous">
+
+        <% include ./../vendors/bs/bootstrapSupport %>
+
+        <!--Datatable Support-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+
+        <!--Custom Stylesheets-->
+        <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
     <% include nav %>
+    <% include flashMessage %>
+    <div id="wrap">
+        <div id="main">

@@ -23,8 +23,8 @@ module.exports = function() {
         extended: true
     }));
 
-    app.use(bodyParser.json()); //DO NOT PARSE TO XML UNLESS YOU WANT TO WRITE NEW CODE AND BLEEDING EYES
-    app.use(methodOverride());
+    app.use(bodyParser.json()); //DO NOT PARSE TO XML UNLESS YOU WANT TO WRITE NEW CODE AND HAVE YOUR EYE BLEED
+    app.use(methodOverride("_method"));
 
     app.use(session({
         secret: config.sessionSec,
@@ -43,13 +43,24 @@ module.exports = function() {
     app.use(passport.initialize());
     app.use(passport.session());
 
+    app.use(function(req, res, next) {
+       res.locals.user = req.user;
+       res.locals.errMsg = req.flash('error');
+       res.locals.sucMsg = req.flash('success');
+       res.locals.comments = [];
+       next();
+    });
+
     // Register Route Handlers
     require('../app/routes/index.server.routes')(app);
     require('../app/routes/users.server.routes')(app);
     require('../app/routes/breads.server.routes')(app);
+    require('../app/routes/comments.server.routes')(app);
 
     // Register the Static Assets Last for I/O Ops reasons
-    app.use(express.static('./public'));
+    app.use(express.static('public'));
+
+    require('../app/routes/pageNotFound.server.routes')(app);
 
     return app;
 };
