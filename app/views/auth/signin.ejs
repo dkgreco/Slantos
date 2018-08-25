@@ -1,0 +1,50 @@
+<% include ./../partials/header %>
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1 style="text-align: center">Log Into Your Account!</h1>
+            <h3 style="text-align: center;">Don't Have an account? Sign-up <a href="/signup">Here</a></h3>
+        </div>
+    </header>
+    <div class="row text-left">
+        <div class="col-md-3 col-sm-6" style="margin: 0 10%; margin-right: 5%; background-color: rgba(156,149,131,0.9); border-radius: 15px;">
+            <h2 style="text-align: center;">Login</h2>
+            <form action="/signin" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input class="form-control" type="text" id="username" name="username" placeholder="Enter Username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" type="password" id="password" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Log Me In!</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 col-sm-6" style="background-color: rgba(156,149,131,0.9); border-radius: 15px;">
+            <h3 style="text-align: center;">Make Logging In a Breeze!<br/>Use One of Your Social Networks to Log In!</h3>
+            <a role="button" class="btn btn-secondary btn-lg btn-block"
+               href="/oauth/facebook">
+                <button class="btn btn-lg btn-outline-primary btn-block">
+                    Use Facebook To Login!
+                </button>
+            </a><br/>
+            <a role="button" class="btn btn-secondary btn-lg btn-block"
+               href="/oauth/google">
+                <button class="btn btn-lg btn-outline-primary btn-block">
+                    Use Google To Login!
+                </button>
+            </a><br/>
+            <a role="button" class="btn btn-secondary btn-lg btn-block disabled" style="text-align:center;" href="/oauth/twitter"
+               aria-disabled="true" aria-describedby="twitterHelp">
+                <button class="btn btn-lg btn-outline-primary btn-block">
+                    Twitter coming soon!
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+<% var sf = true; %>
+<% include ./../partials/footer %>
