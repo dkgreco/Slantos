@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background-image: url('/img/Baking/app-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#wrap {
+    min-height: 100%;
+}
+
+#main {
+    overflow: auto;
+    padding-bottom: 8px;
+    /* must be same height as the footer */
+}
+
+#footer {
+    padding: 1rem;
+    clear: both;
+}
+
+
+/* Opera Fix thanks to Maleika (Kohoutec) */
+body:before {
+    content: "";
+    height: 100%;
+    float: left;
+    width: 0;
+    margin-top: -32767px;
+    /* thank you Erik J - negate effect of float*/
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+header.jumbotron {
+    background: #efe7d7;
+}
+
+#headerStyle{
+    border-radius: 30px;
+}
+
+#quoteStyle {
+    font-size: x-large;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.nav-Stain {
+    background-color: #9c9583;
+    border-color: #9c9583;
+}
+
+.link-Stain {
+    color: #504746;
+}

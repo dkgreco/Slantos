@@ -1,0 +1,48 @@
+<script>
+    let wins = [
+            [
+                [0, 13],
+                [1, 11],
+            ],
+            wins2 = [
+                [[0, 13]],
+                [[1, 11]]
+            ]
+        ],
+        years = [
+            [0, '2006'],
+            [1, '2007']
+        ]
+
+    window.onload = function() {
+        Flotr.draw(
+            document.getElementById('bar_Chart'),
+            wins2,
+            {
+                title: "Wins in Years",
+                colors: ["#DF021D", "#0E204B", "#E67840"],
+                bars: {
+                    show: true,
+                    barWidth: 0.5,
+                    shadowSize: 0,
+                    fillOpacity: 1,
+                    lineWidth: 0
+                },
+                yaxis: {
+                    min: 0,
+                    tickDecimals: 0
+                },
+                xaxis: {
+                    ticks: years
+                },
+                grid: {
+                    horizontalLines: false,
+                    verticalLines: false
+                }
+            }
+        );
+    };
+</script>
+<div id="bar_Chart" style="width: 100%; height: 300px;">
+
+</div>

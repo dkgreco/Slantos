@@ -1,0 +1,43 @@
+<% include ./../partials/header %>
+<head></head>
+<!-- Content Goes Below -->
+<div class="col-md-12">
+<div class="col-md-6" style="background: darkgrey">
+    <div class="col-md-3">
+        <h3>Chart Types</h3>
+    </div>
+    <div class="col-md-3">
+        <div class="list-group" id="list-tab" role="tablist">
+            <ul class="nav nav-pills">
+                <li class="active submenuItem" style="margin-top:1rem;">
+                    <a class="submenuButton" data-toggle="pill" href="#barChart">Bar</a>
+                </li>
+                <li class="submenuItem" style="margin-top:1rem;">
+                    <a class="submenuButton" data-toggle="pill" href="#lineChart">Line</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+        <div id="chartWrapper" style="width: 800px; background-color: silver; margin: 0 auto;">
+            <div class="well" style="background: transparent; border: none; padding-top: 0;">
+                <div class="tab-content">
+                    <div id="barChart" class="tab-pane fade-in" style="border-radius: 5px; padding: 8px;">
+                        <h3>Bar Chart</h3>
+                        <% include ./charts/bar %>
+                    </div>
+                    <div id="lineChart" class="tab-pane fade active">
+                        <h3 class="submenuHeader">Line Chart</h3>
+                        <% include ./charts/line %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Import Libs-->
+<!--[if lt IE 9]><script src="/js/explorerCanvas/src/excanvas.js"></scrip><![endif]-->
+<script src="/js/flotr/min/flotr2.min.js"></script>
+<% var sf = true; %>
+<% include ./../partials/footer %>
