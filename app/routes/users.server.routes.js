@@ -9,7 +9,7 @@ module.exports = function(app) {
 
     app.get('/oauth/twitter/callback', passport.authenticate('twitter', {
         failureRedirect: '/signin',
-        successRedirect: '/'
+        successRedirect: '/breads'
     }));
 
     // Auth Pages - Google Strategy
@@ -22,7 +22,7 @@ module.exports = function(app) {
 
     app.get('/oauth/google/callback', passport.authenticate('google', {
         failureRedirect: '/signin',
-        successRedirect: '/'
+        successRedirect: '/breads'
     }));
 
     // Auth Pages - Facebook Strategy
@@ -32,7 +32,7 @@ module.exports = function(app) {
 
     app.get('/oauth/facebook/callback', passport.authenticate('facebook', {
         failureRedirect: '/signin',
-        successRedirect: '/'
+        successRedirect: '/breads'
     }));
 
     // Auth Pages - Local Strategy

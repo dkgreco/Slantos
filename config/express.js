@@ -56,6 +56,7 @@ module.exports = function() {
     require('../app/routes/users.server.routes')(app);
     require('../app/routes/breads.server.routes')(app);
     require('../app/routes/comments.server.routes')(app);
+    require('../app/routes/analytics.server.routes')(app);
 
     // Register the Static Assets Last for I/O Ops reasons
     app.use(express.static('public'));

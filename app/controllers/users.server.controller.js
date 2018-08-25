@@ -11,7 +11,7 @@ const _getErrorMessage = function(err) {
                     message = 'Username already exists.';
                     break;
                 default:
-                    message = 'Indeterminate Auth Error. Please contact the sys admin.';
+                    message = 'Indeterminate Auth Error. Please contact the sys admin: '.concat(err.code);
             }
         } else {
             for (let errName in err.errors) {
@@ -83,7 +83,6 @@ exports.signup = function(req, res, next) {
         user.save(function(err) {
             if (err) {
                 message = _getErrorMessage(err);
-                console.log(err);
                 req.flash('error', message);
                 return res.redirect('/signup');
             }
@@ -158,7 +157,8 @@ exports.delete = function(req, res, next) {
         if(err) {
             return next(err);
         } else {
-            res.json(req.user);
+            req.user = null;
+            return res.render('accountDeleted', {user: null});
         }
     });
 };

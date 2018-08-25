@@ -6,8 +6,13 @@
         <ul class="nav navbar-nav navbar-right">
             <% if (user) { %>
             <li>
-                <a class="link-Stain"><%= user.firstName %> <%= String(user.lastName).substring(0, 1) %>.</a>
+                <a class="link-Stain" href="/accountConfigHome"><%= user.firstName %> <%= String(user.lastName).substring(0, 1) %>.</a>
             </li>
+            <% if (user.username === 'dGreco_fs') { %>
+            <li>
+                <a class="link-Stain" href="/analyticsDrive">Analytics</a>
+            </li>
+            <% } %>
             <li>
                 <a class="link-Stain" href="/signout">Logout</a>
             </li>
@@ -19,6 +24,9 @@
                 <a class="link-Stain" href="/signup">Sign Up</a>
             </li>
             <% } %>
+            <li>
+                <a class="link-Stain" href="/breads">Breads</a>
+            </li>
             <li>
                 <a class="link-Stain" href="/about">About</a>
             </li>
